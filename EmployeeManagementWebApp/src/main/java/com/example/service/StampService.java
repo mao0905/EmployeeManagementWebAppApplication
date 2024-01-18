@@ -33,4 +33,8 @@ public class StampService {
     public Stamp getLastStamp(String employeeId) {
         return stampRepository.findByEmployeeIdAndEndTimeIsNullOrderByStartTimeDesc(employeeId);
     }
+
+	public List<Stamp> getStampByEmployeeId(String employeeId) {
+		return stampRepository.findByEmployeeId(employeeId);
+	}
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>カレンダーページ</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>カレンダー</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>日付</th>
+                <th>出勤時間</th>
+                <th>退勤時間</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the stamp list and display information -->
+            <tr th:each="stamp : ${stampList}">
+                <td th:text="${stamp.startTime.toLocalDate()}"></td>
+                <td th:text="${stamp.startTime.toLocalTime()}"></td>
+                <td th:if="${stamp.endTime != null}" th:text="${stamp.endTime.toLocalTime()}"></td>
+                <td th:if="${stamp.endTime == null}">未退勤</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

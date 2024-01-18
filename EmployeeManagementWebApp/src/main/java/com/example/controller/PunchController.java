@@ -2,9 +2,12 @@ package com.example.controller;
 
 import java.security.Principal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.model.Stamp;
@@ -60,5 +63,16 @@ public class PunchController {
         }
 
         return "redirect:/hello";
+    }
+    
+    @GetMapping("/calendar")
+    public String showCalendar(Principal principal, Model model) {
+        // 現在ログインしているユーザーのstampリストを取得
+        List<Stamp> stampList = stampService.getStampByEmployeeId(principal.getName());
+
+        // モデルにリストを追加
+        model.addAttribute("stampList", stampList);
+
+        return "/calendar";
     }
 }
