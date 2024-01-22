@@ -28,7 +28,19 @@
             <input type="submit" name="clockOut" value="退勤"/>
         </form>
     </div>
+    <div class="button-container">
+        <form action="/break/in" method="post">
+            <!-- CSRFトークンの追加 -->
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <input type="submit" name="breakIn" value="休憩開始"/>
+        </form>
 
+        <form action="/break/out" method="post">
+            <!-- CSRFトークンの追加 -->
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <input type="submit" name="breakOut" value="休憩終了"/>
+        </form>
+    </div>
     <form action="/logout" method="post">
         <!-- CSRFトークンの追加 -->
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
