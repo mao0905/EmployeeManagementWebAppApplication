@@ -10,32 +10,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.model.Stamp;
-import com.example.service.StampService;
+import com.example.model.StampWeb;
+import com.example.service.StampWebService;
 
 @RestController
 @RequestMapping("/api/stamps")
 public class StampController {
 
-    private final StampService stampService;
+    private final StampWebService stampService;
 
     @Autowired
-    public StampController(StampService stampService) {
+    public StampController(StampWebService stampService) {
         this.stampService = stampService;
     }
 
     @GetMapping
-    public List<Stamp> getAllStamps() {
+    public List<StampWeb> getAllStamps() {
         return stampService.getAllStamps();
     }
 
     @PostMapping
-    public void saveStamp(@RequestBody Stamp stamp) {
+    public void saveStamp(@RequestBody StampWeb stamp) {
         stampService.saveStamp(stamp);
     }
 
     @GetMapping("/{id}")
-    public Stamp getStampById(@PathVariable Long id) {
+    public StampWeb getStampById(@PathVariable Long id) {
         return stampService.getStampById(id);
     }
 }

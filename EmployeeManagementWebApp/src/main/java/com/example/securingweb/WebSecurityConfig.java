@@ -51,7 +51,7 @@ public class WebSecurityConfig {
         return new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String username) {
-                Employee employee = employeeService.findByEmployeeId(username);
+                Employee employee = employeeService.getEmployeeById(username);
 
                 if (employee != null) {
                     return User

@@ -5,36 +5,36 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.model.Stamp;
-import com.example.repository.StampRepository;
+import com.example.model.StampWeb;
+import com.example.repository.StampWebRepository;
 
 @Service
-public class StampService {
+public class StampWebService {
 
-    private final StampRepository stampRepository;
+    private final StampWebRepository stampRepository;
 
     @Autowired
-    public StampService(StampRepository stampRepository) {
+    public StampWebService(StampWebRepository stampRepository) {
         this.stampRepository = stampRepository;
     }
 
-    public List<Stamp> getAllStamps() {
+    public List<StampWeb> getAllStamps() {
         return stampRepository.findAll();
     }
 
-    public void saveStamp(Stamp stamp) {
+    public void saveStamp(StampWeb stamp) {
         stampRepository.save(stamp);
     }
 
-    public Stamp getStampById(Long id) {
+    public StampWeb getStampById(Long id) {
         return stampRepository.findById(id).orElse(null);
     }
 
-    public Stamp getLastStamp(String employeeId) {
+    public StampWeb getLastStamp(String employeeId) {
         return stampRepository.findByEmployeeIdAndEndTimeIsNullOrderByStartTimeDesc(employeeId);
     }
 
-	public List<Stamp> getStampByEmployeeId(String employeeId) {
+	public List<StampWeb> getStampByEmployeeId(String employeeId) {
 		return stampRepository.findByEmployeeId(employeeId);
 	}
 }
