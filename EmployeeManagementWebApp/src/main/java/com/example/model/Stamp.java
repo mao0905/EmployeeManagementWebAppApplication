@@ -24,12 +24,12 @@ public class Stamp {
     private Integer month;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private LocalDateTime breakStartTime1;
-    private LocalDateTime breakEndTime1;
-    private LocalDateTime breakStartTime2;
-    private LocalDateTime breakEndTime2;
-    private LocalDateTime breakStartTime3;
-    private LocalDateTime breakEndTime3;
+    private LocalDateTime breakStartTime_1;
+    private LocalDateTime breakEndTime_1;
+    private LocalDateTime breakStartTime_2;
+    private LocalDateTime breakEndTime_2;
+    private LocalDateTime breakStartTime_3;
+    private LocalDateTime breakEndTime_3;
     private Integer workTime;
     private Integer breakTime;
     private String note;
