@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,15 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public Employee findByEmployeeId(String employeeId) {
+    public Employee getEmployeeById(String employeeId) {
         return employeeRepository.findByEmployeeId(employeeId);
     }
+
+	public List<Employee> getAllEmployees() {
+		return employeeRepository.findAll();
+	}
+
+	public void saveEmployee(Employee employee) {
+		employeeRepository.save(employee);
+	}
 }

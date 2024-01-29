@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.model.Stamp;
+import com.example.model.StampWeb;
 
-public interface StampRepository extends JpaRepository<Stamp, Long> {
+public interface StampWebRepository extends JpaRepository<StampWeb, Long> {
 	// employee_idが現在ログインしているユーザーの名前であり、かつend_timeがnullであるレコードを取得
-    Stamp findByEmployeeIdAndEndTimeIsNullOrderByStartTimeDesc(String employeeId);
+    StampWeb findByEmployeeIdAndEndTimeIsNullOrderByStartTimeDesc(String employeeId);
 
-	List<Stamp> findByEmployeeId(String employeeId);
+	List<StampWeb> findByEmployeeId(String employeeId);
 }
